@@ -1,0 +1,6 @@
+com\hisen\dao\BookDao.class
+com\hisen\service\BookService.class
+com\hisen\web\UserController.class
+com\hisen\web\BookController.class
+com\hisen\entity\Book.class
+com\hisen\service\impl\BookServiceImpl.class
