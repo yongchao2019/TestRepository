@@ -19,21 +19,21 @@
         p.h2{font-size: 200%;font-width: bold;}
     </style>
     <style>input{width:300px;height:30px;line-height:30px;}</style>
-    <style>
-        .button {
-            background-color: #e7e7e7;
-            border: none;
-            color: black;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 10px;
-            margin: 4px 2px;
-            cursor: pointer;
-            width: 250px;
-        }
-    </style>
+<%--    <style>--%>
+<%--        .button {--%>
+<%--            background-color: #e7e7e7;--%>
+<%--            border: none;--%>
+<%--            color: black;--%>
+<%--            padding: 15px 32px;--%>
+<%--            text-align: center;--%>
+<%--            text-decoration: none;--%>
+<%--            display: inline-block;--%>
+<%--            font-size: 10px;--%>
+<%--            margin: 4px 2px;--%>
+<%--            cursor: pointer;--%>
+<%--            width: 250px;--%>
+<%--        }--%>
+<%--    </style>--%>
 </head>
 <body>
 <div class="container">
@@ -63,7 +63,7 @@
               <p class="h1">图书细节:</p> <input type="text" name="detail" />
               <br>
               <br>
-              <button type="button" class="btn btn-info">提交</button>
+              <button>提交</button>
           </form>
         </div>
     </div>
@@ -73,13 +73,15 @@
 <script>
     $(document).ready(function(){
         $("button").click(function(){
-            $.post("<%=appPath%>/book/add",{
-                    name:"Book",
-                    url:"<%=appPath%>/book/add"
+            $.ajax({
+                url:"<%=appPath%>/book/add",
+                success:function(sucsess){
+                    alert("success");
                 },
-                function(data,status){
-                    alert("数据: \n" + data + "\n状态: " + status);
-                });
+                error:function(result){
+                    alert("failed");
+                }
+            });
         });
     });
 </script>

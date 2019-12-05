@@ -38,13 +38,15 @@ public class BookController {
     }
 
     @RequestMapping(value = "/add")
+    @ResponseBody
     private String add(@ModelAttribute Book book) {
         Book hasBook = bookService.getById(book.getBookId());
         int i = -2;
         if (hasBook == null) {
             i = bookService.addBook(book);
+            return "success";
         }
-        return "list";
+        return "error";
     }
 
     @RequestMapping(value = "/del/{bookId}", method = RequestMethod.GET)

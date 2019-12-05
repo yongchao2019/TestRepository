@@ -2,8 +2,6 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1" metadata-complete="true">
-
-
   <!-- 配置DispatcherServlet -->
   <servlet>
     <servlet-name>seckill-dispatcher</servlet-name>
@@ -22,16 +20,4 @@
     <!-- 默认匹配所有的请求 -->
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-
-
-  <!-- 使用filter实现登录控制 -->
-  <filter>
-    <filter-name>SessionFilter</filter-name>
-    <filter-class>com.hisen.loginFilter.LoginFilter</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>SessionFilter</filter-name>
-    <!-- 所有的管理页面需要登录后才能访问 -->
-    <url-pattern>/users/*</url-pattern>
-  </filter-mapping>
 </web-app>
